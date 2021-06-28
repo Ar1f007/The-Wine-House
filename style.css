@@ -6,7 +6,7 @@
   outline: none;
   text-decoration: none;
   list-style-type: none;
-  font-family: 'Cormorant Garamond', serif;
+  font-family: "Cormorant Garamond", serif;
 }
 
 html {
@@ -27,6 +27,125 @@ section {
   left: 0;
 }
 /* End of common style */
+
+/* Navbar  */
+.navbar {
+  position: fixed;
+  z-index: 100;
+  width: 100%;
+  top: 1rem;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.logo {
+  height: 6rem;
+}
+
+/* Links  */
+.nav-list {
+  display: flex;
+  justify-content: center;
+}
+
+.nav-link {
+  font-size: 1.5rem;
+  color: #fff;
+  width: 15rem;
+  margin: 0 3rem;
+  text-transform: uppercase;
+  border: 0.1rem solid #fff;
+  text-align: center;
+  padding: 0.2rem 0;
+  letter-spacing: 0.1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-link::before {
+  content: "";
+  width: 150%;
+  height: 5rem;
+  left: -20%;
+  background-color: #d50000;
+  position: absolute;
+  transform: rotate(-40deg) translateX(-4rem);
+  transform-origin: left bottom;
+  opacity: 0.8;
+  transition: left 0.3s;
+}
+
+.nav-link:hover::before {
+  left: 110%;
+}
+
+/* Navigate button  */
+.page-btn {
+  position: fixed;
+  z-index: 100;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: transparent;
+  border: none;
+}
+
+.page-btn img {
+  width: 4rem;
+  opacity: 0.4;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.left-btn {
+  left: 4rem;
+}
+
+.left-btn img {
+  transform: rotate(-90deg);
+}
+
+.right-btn {
+  right: 4rem;
+}
+
+.right-btn img {
+  transform: rotate(90deg);
+}
+
+.page-btn img:hover {
+  opacity: 1;
+}
+
+/* progress */
+.progress-wrapper {
+  position: fixed;
+  z-index: 100;
+  bottom: 2rem;
+  left: 3rem;
+}
+
+.progress {
+  margin: 1rem 0;
+  text-align: center;
+}
+.progress h2 {
+  font-size: 2.5rem;
+  font-weight: 300;
+  color: #fff;
+}
+
+.circle-wrapper {
+  display: flex;
+}
+.circle {
+  width: 1rem;
+  height: 1rem;
+  border: 0.1rem solid #fff;
+  border-radius: 50%;
+  margin: 0 0.3rem;
+}
+/* End of Navbar  */
 
 /* Section 1 */
 .section-1 {
