@@ -6,6 +6,12 @@ let counter1 = 0;
 let counter2 = 1;
 let bool = true;
 
+// Menu
+const menu = document.querySelector('.menu');
+menu.addEventListener('click', () => {
+  document.querySelector('.navbar').classList.toggle('change');
+});
+
 // progress
 const progress = document.querySelector('.progress h2');
 const circles = document.querySelectorAll('.circle');
