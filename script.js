@@ -1,6 +1,10 @@
 'use strict';
 
 const sections = document.querySelectorAll('section');
+const section1Wrapper = document.querySelector('.section-1-wrapper');
+const section5Wrapper = document.querySelector('.section-5-wrapper');
+
+section1Wrapper.style.transform = 'scale(1)';
 
 let counter1 = 0;
 let counter2 = 1;
@@ -35,6 +39,9 @@ const pageController = () => {
     counter1 = 0;
     counter2 = 1;
 
+    section1Wrapper.style.transform = 'scale(1)';
+    section5Wrapper.style.transform = 'scale(1.5)';
+
     progressCounter();
 
     bool = false;
@@ -48,6 +55,9 @@ const pageController = () => {
     });
     counter1 = 4;
     counter2 = 5;
+
+    section1Wrapper.style.transform = 'scale(1.5)';
+    section5Wrapper.style.transform = 'scale(1)';
 
     progressCounter();
     bool = false;
@@ -71,10 +81,19 @@ window.addEventListener('wheel', e => {
   pageController();
   progressCounter();
 
-  bool &&
-    (document.querySelector(
+  if (bool) {
+    document.querySelector(
       `.section-${deltaY ? counter1 : counter2}`
-    ).style.left = `${deltaY ? '-100vw' : '0'}`);
+    ).style.left = `${deltaY ? '-100vw' : '0'}`;
+
+    document.querySelector(
+      `.section-${deltaY ? counter1 : counter2}-wrapper`
+    ).style.transform = `scale(${deltaY ? '1.5' : '1'})`;
+
+    document.querySelector(
+      `.section-${deltaY ? counter1 + 1 : counter2 + 1}-wrapper`
+    ).style.transform = `scale(${deltaY ? '1' : '1.5'})`;
+  }
 });
 
 // navigate through buttons
@@ -86,12 +105,27 @@ leftBtn.addEventListener('click', () => {
   counter2--;
   pageController() &&
     (document.querySelector(`.section-${counter2}`).style.left = '0');
+
+  if (bool) {
+    document.querySelector(`.section-${counter2}-wrapper`).style.transform =
+      'scale(1)';
+    document.querySelector(`.section-${counter2 + 1}-wrapper`).style.transform =
+      'scale(1.5)';
+  }
 });
+
 rightBtn.addEventListener('click', () => {
   counter1++;
   counter2++;
   pageController() &&
     (document.querySelector(`.section-${counter1}`).style.left = '-100vw');
+
+  if (bool) {
+    document.querySelector(`.section-${counter2}-wrapper`).style.transform =
+      'scale(1)';
+    document.querySelector(`.section-${counter1}-wrapper`).style.transform =
+      'scale(1.5)';
+  }
 });
 
 // Section 3 mouseover effect

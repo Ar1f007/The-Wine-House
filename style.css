@@ -165,6 +165,8 @@ section {
 .section-wrapper {
   width: inherit;
   height: inherit;
+  transform: scale(1.5);
+  transition: all 2s;
 }
 
 .section-1-wrapper {
@@ -253,7 +255,6 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: opacity 1.5s;
 }
 
 .section-3-heading {
